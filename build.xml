@@ -1,0 +1,40 @@
+<project name="Geocron" default="all" basedir=".">
+
+	<property name="version" value="0.6" />
+	<property name="host" value="angarak.com" />
+
+	<property environment="env" />
+
+	<property name="src" location="src" />
+	<property name="src.base" location="${src}/base" />
+	<property name="src.modules" location="${src}/modules" />
+
+	<property name="build" location="build" />
+
+	<target name="build">
+		<mkdir dir="${build}" />
+		<copy todir="${build}">
+			<fileset dir="${src.base}" includes="*.js" />
+			<fileset dir="${src.modules}/planet" includes="*.js" />
+			<fileset dir="${src.modules}/system" includes="*.js" />
+			<fileset dir="${src.modules}/target" includes="*.js" />
+			<fileset dir="${src}" includes="*.css" />
+		</copy>
+
+		<replace token="@VERSION" value="${version}" dir="${build}" includes="geocron.user.js geocron.base.js" />
+		<replace token="@HOST" value="${host}" file="${build}/geocron.user.js" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="deploy" depends="build">
+		<copy todir="../../Public Html/geocron">
+			<fileset dir="${build}" includes="*" />
+		</copy>
+	</target>
+
+	<target name="all" depends="clean,deploy" />
+
+</project>

@@ -1,0 +1,402 @@
+.clear {
+	clear: both;
+}
+
+.EREL {
+	color: #773cff;
+}
+
+.FGV {
+	color: #c1caff;
+}
+
+.GD {
+	color: #c0c0c0;
+}
+
+.OSG {
+	color: #825600;
+}
+
+.PM {
+	color: #39ffbb;
+}
+
+.RP {
+	color: #ff0000;
+}
+
+#armement #ship-status-recovery {
+	float: left;
+}
+
+#armement #allied-ships-toggle {
+	float: right;
+}
+
+#armement #allied-ships-toggle input {
+	vertical-align: -2px;
+}
+
+#armement table.targets {
+	clear: both;
+}
+
+#armement table.targets .status {
+	background-color: #CC3300;
+	height: 16px;
+	margin-top: 10px;
+	overflow: hidden;
+	position: relative;
+	width: 80px;
+	-moz-border-radius: 2px;
+}
+
+#armement table.targets .status div {
+	height: 16px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	-moz-border-radius-bottomleft: 2px;
+	-moz-border-radius-topleft: 2px;
+}
+
+#armement table.targets .status .current {
+	background-color: #339933;
+}
+
+#armement table.targets .status .ab {
+	background-color: #888888;
+}
+
+table.troops tr:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+table.troops tr.total {
+	color: #fad42e;
+}
+
+/* tables */
+table.tablesorter {
+	border-collapse: collapse;
+	font-size: 1em;
+	margin: 10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #eeeeee;
+	border: 1px solid white;
+	color: black;
+	padding: 4px 20px 4px 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(data:image/png;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	background-color: black;
+	border: 1px solid gray;
+	padding: 4px;
+	text-align: center;
+	vertical-align: middle;
+}
+table.tablesorter tbody tr.odd td {
+	background-color: #222222;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(data:image/png;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(data:image/png;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #c1caff;
+}
+
+
+/* global */
+#cluetip-close img {
+	border: 0;
+}
+
+#cluetip-title {
+	overflow: hidden;
+}
+
+#cluetip-title #cluetip-close {
+	float: right;
+	position: relative;
+}
+
+.cluetip-arrows {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: -11px;
+	height: 22px;
+	width: 11px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+#cluetip-extra {
+	display: none;
+}
+
+/***************************************
+   =cluetipClass: 'default' 
+-------------------------------------- */
+.cluetip-default {
+	background-color: #000000;
+	font-size: smaller;
+	-moz-border-radius: 4px;
+}
+
+.cluetip-default #cluetip-outer {
+	position: relative;
+	margin: 0;
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #ffffff;
+	-moz-border-radius: 4px;
+	-moz-box-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
+}
+
+.cluetip-default h3#cluetip-title {
+	background: #000000 no-repeat right;
+	margin: 0 0 5px;
+	padding: 6px 10px 4px;
+	font-size: 1.1em;
+	font-weight: bolder;
+	color: #ffffff;
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: capitalize;
+	-moz-border-radius: 4px;
+}
+
+.cluetip-default h3#cluetip-title tt {
+	font-size: smaller;
+	font-weight: normal;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.cluetip-default #cluetip-title a {
+	color: #d9d9c2;
+	font-size: 0.95em;
+}
+
+.cluetip-default #cluetip-title #cluetip-close {
+	float: none;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.cluetip-default #cluetip-title #cluetip-close a {
+	text-decoration: none;
+}
+
+.cluetip-default #cluetip-inner {
+	padding: 10px 20px;
+	text-align: left;
+}
+
+.cluetip-default #cluetip-inner p {
+	margin: 0.5em 0;
+}
+
+.cluetip-default #cluetip-inner tt {
+	font-size: larger;
+	margin-left: 4px;
+}
+
+.cluetip-default div#cluetip-close {
+	text-align: right;
+	margin: 0 5px 5px;
+	color: #900;
+}
+
+.cluetip-default #cluetip-inner {
+	color: #000000;
+}
+
+.cluetip-default #cluetip-inner b {
+	color: black;
+	font-weight: bolder;
+	text-shadow: 1px 1px 1px #999999;
+}
+
+.cluetip-default.troops h4 {
+	border: 2px groove white;
+	display: inline-block;
+	margin: 0;
+	padding: 2px 4px;
+	-moz-border-radius: 4px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.cluetip-default.troops h4.EREL {
+	background-color: rgba(119, 60, 255, 0.4);
+	border-color: #773cff;
+}
+
+.cluetip-default.troops h4.FGV {
+	background-color: rgba(193, 202, 255, 0.4);
+	border-color: #c1caff;
+}
+
+.cluetip-default.troops h4.GD {
+	background-color: rgba(192, 192, 192, 0.4);
+	border-color: #c0c0c0;
+}
+
+.cluetip-default.troops h4.OSG {
+	background-color: rgba(130, 86, 0, 0.4);
+	border-color: #825600;
+}
+
+.cluetip-default.troops h4.PM {
+	background-color: rgba(57, 255, 187, 0.4);
+	border-color: #39ffbb;
+}
+
+.cluetip-default.troops h4.RP {
+	background-color: rgba(255, 0, 0, 0.4);
+	border-color: #ff0000;
+}
+
+
+/* default arrows */
+.clue-right-default .cluetip-arrows {
+	
+}
+
+.clue-left-default .cluetip-arrows {
+	left: 100%;
+	margin-right: -11px;
+}
+
+.clue-top-default .cluetip-arrows {
+	background-image: url('data:image/gif;base64,R0lGODlhFgALAIABADEnJP///yH5BAEAAAEALAAAAAAWAAsAAAIchI+pEOsZ4nuxTlXzPbnvDk7g6IwmZp5cmhpsAQA7');
+	top: 100%;
+	left: 50%;
+	margin-left: -11px;
+	height: 11px;
+	width: 22px;
+}
+
+.clue-bottom-default .cluetip-arrows {
+	background-image: url('data:image/gif;base64,R0lGODlhFgALAIABADEnJP///yH5BAEAAAEALAAAAAAWAAsAAAIcjI8AyJ26nAwQzlbrPTnv3k0g6IwjY5pcqrJsAQA7');
+	top: -11px;
+	left: 50%;
+	margin-left: -11px;
+	height: 11px;
+	width: 22px;
+}
+
+
+/***************************************
+   =cluetipClass: 'system' 
+-------------------------------------- */
+.cluetip-system {
+	background-color: black;
+	-moz-border-radius: 4px;
+}
+
+.cluetip-system #cluetip-outer {
+	position: relative;
+	margin: 0;
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+	-moz-border-radius: 4px;
+	-moz-box-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
+}
+
+.cluetip-system #cluetip-inner {
+	padding: 10px;
+}
+
+.cluetip-system #cluetip-inner table {
+	border-collapse: collapse;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+}
+
+.cluetip-system #cluetip-inner table th {
+	border: 1px solid lightgray;
+	padding: 4px 6px;
+}
+
+.cluetip-system #cluetip-inner table td {
+	border: 1px solid lightgray;
+	padding: 4px 6px;
+}
+
+.cluetip-system #cluetip-inner table.planet {
+	margin: 0 auto 1.5em;
+	width: auto;
+}
+
+.cluetip-system #cluetip-inner table.planet td {
+	border-width: 2px;
+}
+
+.cluetip-system #cluetip-inner table.planet td:first-child {
+	font-size: 1.5em;
+}
+
+.cluetip-system #cluetip-inner nobr {
+	white-space: normal;
+}
+
+.cluetip-system #cluetip-inner .ally,
+.cluetip-system #cluetip-inner .others {
+	overflow: hidden;
+	width: 475px;
+}
+
+.cluetip-system #cluetip-inner .ally td,
+.cluetip-system #cluetip-inner .others td {
+	max-width: 160px;
+	overflow: hidden;
+}
+
+.cluetip-system #cluetip-inner .ally {
+	float: left;
+}
+
+.cluetip-system #cluetip-inner .others {
+	float: right;
+}
+
+
+/***************************************
+   =cluetipClass: 'target' 
+-------------------------------------- */
+.cluetip-target {
+	background-color: black;
+	-moz-border-radius: 4px;
+}
+
+.cluetip-target #cluetip-outer {
+	position: relative;
+	margin: 0;
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+	-moz-border-radius: 4px;
+	-moz-box-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
+}
+
+.cluetip-target #cluetip-inner {
+	padding: 10px;
+	text-align: left;
+}
