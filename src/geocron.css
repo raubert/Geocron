@@ -2,6 +2,10 @@
 	clear: both;
 }
 
+.CCK {
+	color: #57955b;
+}
+
 .EREL {
 	color: #773cff;
 }
@@ -242,6 +246,11 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+.cluetip-default.troops h4.CCK {
+	background-color: rgba(87, 149, 91, 0.4);
+	border-color: #57955b;
+}
+
 .cluetip-default.troops h4.EREL {
 	background-color: rgba(119, 60, 255, 0.4);
 	border-color: #773cff;
@@ -399,4 +408,14 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 .cluetip-target #cluetip-inner {
 	padding: 10px;
 	text-align: left;
+}
+
+/* ----------------------------------- *
+ *  Speed Plano                        *
+ * ----------------------------------- */
+
+input.search {
+	display: block;
+	margin: 0 auto 1em;
+	text-align: center;
 }

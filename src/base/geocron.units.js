@@ -3,14 +3,19 @@
  */
 (function( $, GEOCRON ) {
 
-var ATTACK_DICE = {
-		name: 'Jet d\'attaque',
+var NONE = {
+		name: '',
 		shared: false,
+		mod: 1
+	},
+	ATTACK_DICE = {
+		name: 'Jet d\'attaque',
+		shared: true,
 		mod: 1
 	},
 	ATTACK_BONUS = {
 		name: 'Bonus d\'attaque',
-		shared: false,
+		shared: true,
 		mod: 1
 	},
 	ATTACK_OPPONENT = {
@@ -30,7 +35,7 @@ var ATTACK_DICE = {
 	},
 	DEFENSE_OPPONENT = {
 		name: 'Jet de défense adverse',
-		shared: false,
+		shared: true,
 		mod: -1
 	},
 	DAMAGE_DICE = {
@@ -72,6 +77,8 @@ var ATTACK_DICE = {
 GEOCRON.units = {};
 
 GEOCRON.units.SKILLS = [
+	NONE,
+
 	// attack bonuses (not shared)
 	ATTACK_DICE,
 	ATTACK_BONUS,

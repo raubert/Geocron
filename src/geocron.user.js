@@ -5,7 +5,8 @@
 // @include http://geocron.enix.org/geowars/jouer.php
 // @version @VERSION
 // @resource CSS http://@HOST/geocron/geocron.css
-// @resource JQ http://@HOST/geocron/jquery-1.5.1.js
+// @resource JQ http://@HOST/geocron/jquery-1.5.1.min.js
+// @resource BATB http://@HOST/geocron/jquery.ba-throttle-debounce.min.js
 // @resource HOVER http://@HOST/geocron/jquery.hoverIntent.js
 // @resource CLUE http://@HOST/geocron/jquery.cluetip.js
 // @resource TABLE http://@HOST/geocron/jquery.tablesorter.js
@@ -15,16 +16,21 @@
 // @resource SYSTEM http://@HOST/geocron/geocron.system.js
 // @resource TARGET http://@HOST/geocron/geocron.target.js
 // @resource PLANET http://@HOST/geocron/geocron.planet.js
+// @resource PLANO http://@HOST/geocron/geocron.plano.js
 // @resource LAUNCH http://@HOST/geocron/geocron.launch.js
 // ==/UserScript==
 
-var elt = document.createElement( 'style' );
-elt.setAttribute( 'type', 'text/css' );
-elt.innerHTML = GM_getResourceText( 'CSS' );
-document.getElementsByTagName( 'head' )[0].appendChild( elt );
+var elt;
 
-var scripts = [ 'JQ', 'HOVER', 'CLUE', 'TABLE', 'BASE', 'SHIPS', 'UNITS', 'SYSTEM', 'TARGET', 'PLANET', 'LAUNCH' ];
+var css = [ 'CSS' ];
+for ( var i = 0; i < css.length; i++ ) {
+	elt = document.createElement( 'style' );
+	elt.setAttribute( 'type', 'text/css' );
+	elt.innerHTML = GM_getResourceText( css[i] );
+	document.getElementsByTagName( 'head' )[0].appendChild( elt );
+}
 
+var scripts = [ 'JQ', 'BATB', 'HOVER', 'CLUE', 'TABLE', 'BASE', 'SHIPS', 'UNITS', 'SYSTEM', 'TARGET', 'PLANET', 'PLANO', 'LAUNCH' ];
 for ( var i = 0; i < scripts.length; i++ ) {
 	elt = document.createElement( 'script' );
 	elt.setAttribute( 'type', 'text/javascript' );

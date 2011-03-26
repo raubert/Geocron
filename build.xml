@@ -1,7 +1,7 @@
 <project name="Geocron" default="all" basedir=".">
 
-	<property name="version" value="0.6" />
-	<property name="host" value="angarak.com" />
+	<property name="version" value="0.9" />
+	<property name="host" value="localhost" />
 
 	<property environment="env" />
 
@@ -14,10 +14,9 @@
 	<target name="build">
 		<mkdir dir="${build}" />
 		<copy todir="${build}">
+			<fileset dir="${src}" includes="*.js" />
 			<fileset dir="${src.base}" includes="*.js" />
-			<fileset dir="${src.modules}/planet" includes="*.js" />
-			<fileset dir="${src.modules}/system" includes="*.js" />
-			<fileset dir="${src.modules}/target" includes="*.js" />
+			<fileset dir="${src.modules}" includes="*.js" />
 			<fileset dir="${src}" includes="*.css" />
 		</copy>
 
@@ -30,7 +29,7 @@
 	</target>
 
 	<target name="deploy" depends="build">
-		<copy todir="../../Public Html/geocron">
+		<copy todir="../../Public Html/Geocron">
 			<fileset dir="${build}" includes="*" />
 		</copy>
 	</target>

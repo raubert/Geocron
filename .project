@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>www</name>
+			<type>2</type>
+			<location>C:/Users/Raph/Public Html/Geocron/www</location>
+		</link>
+	</linkedResources>
 </projectDescription>

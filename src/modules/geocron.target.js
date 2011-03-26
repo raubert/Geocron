@@ -69,14 +69,16 @@ GEOCRON.modules.push({
 			});
 
 		$( '<button id="ship-status-recovery">Récupérer le Statut</button>' ).click(function() {
+			var matcher = /Abandon : (\d+)% \(actuel : (\d+)%\)/;
+
 			$( 'form', table ).each(function() {
 				var self = $( this );
 				$.post('jouer.php', {
 					initcombatid: $( 'input[type=hidden]', this ).val(),
 					initcombat: 'Combat !'
 				}, function( data ) {
-					var status = /Abandon : (\d+)% \(actuel : (\d+)%\)/.exec( $(data).find('table.second:nth(2) tr:nth(1) td:nth(1) font:last').text() );
-					if ( status.length > 2 ) {
+					var status = matcher.exec( $(data).find('table.second:nth(2) tr:last td:last').text() );
+					if ( status && status.length > 2 ) {
 						$( '<div class="status"><div class="current" style="width:' + status[2] + '%"></div><div class="ab" style="width:' + status[1] + '%"></div></div>' )
 							.attr( 'title', '|État Courant : <tt>' + status[2] + '%</tt><br/>Abandon : <tt>' + status[1] + '%</tt>' )
 							.cluetip({
@@ -91,6 +93,8 @@ GEOCRON.modules.push({
 					}
 				});
 			});
+
+			return false;
 		}).insertBefore( table );
 
 		$( '<div id="allied-ships-toggle"><input type="checkbox" id="allied-ships-vis" /><label for="allied-ships-vis">Voir les Vaisseaux Alliés</label></div>' )
