@@ -14,6 +14,10 @@
 	color: #c1caff;
 }
 
+.FMUS {
+	color: #7d8abb;
+}
+
 .GD {
 	color: #c0c0c0;
 }
@@ -261,6 +265,11 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	border-color: #c1caff;
 }
 
+.cluetip-default.troops h4.FMUS {
+	background-color: rgba(125, 138, 187, 0.4);
+	border-color: #7d8abb;
+}
+
 .cluetip-default.troops h4.GD {
 	background-color: rgba(192, 192, 192, 0.4);
 	border-color: #c0c0c0;
@@ -329,6 +338,15 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	-moz-box-shadow: 0 0 1em rgba(255, 255, 255, 0.5);
 }
 
+.cluetip-system #cluetip-close {
+	font-family: monospace;
+	margin: 0;
+    margin-bottom: -10px;
+    margin-right: -3px;
+    margin-top: -6px;
+	text-align: right;
+}
+
 .cluetip-system #cluetip-inner {
 	padding: 10px;
 }
@@ -337,6 +355,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	border-collapse: collapse;
 	font-family: Verdana, Arial, Helvetica;
 	font-size: 10px;
+	width: 100%;
 }
 
 .cluetip-system #cluetip-inner table th {
@@ -366,23 +385,23 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	white-space: normal;
 }
 
-.cluetip-system #cluetip-inner .ally,
-.cluetip-system #cluetip-inner .others {
+.cluetip-system #cluetip-inner .left,
+.cluetip-system #cluetip-inner .right {
 	overflow: hidden;
 	width: 475px;
 }
 
-.cluetip-system #cluetip-inner .ally td,
-.cluetip-system #cluetip-inner .others td {
+.cluetip-system #cluetip-inner .left td,
+.cluetip-system #cluetip-inner .right td {
 	max-width: 160px;
 	overflow: hidden;
 }
 
-.cluetip-system #cluetip-inner .ally {
+.cluetip-system #cluetip-inner .left {
 	float: left;
 }
 
-.cluetip-system #cluetip-inner .others {
+.cluetip-system #cluetip-inner .right {
 	float: right;
 }
 

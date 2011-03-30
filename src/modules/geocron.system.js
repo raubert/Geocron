@@ -26,7 +26,44 @@ GEOCRON.modules.push({
 		return $( 'table.starfield:first' ).length == 1;
 	},
 
+	getFaction: function( line ) {
+		var name = $( line ).find( 'td:nth(4)' );
+		if ( name.length == 1 ) {
+			return name.text();
+		}
+		return null;
+	},
+
+	splitShips: function( data, test ) {
+		var left = [], right = [];
+
+		for ( var i = 0; i < data.length; i++ ) {
+			var faction = this.getFaction( data[i] );
+			if ( faction != null ) {
+				$( data[i] ).addClass( faction.replace( '.', '', 'g' ) );
+				( test(faction) ? left : right ).push( data[i] );
+			}
+		}
+
+		return {
+			left: left,
+			right: right
+		};
+	},
+
+	getTableMarkup: function( data ) {
+		var markup = '<table>';
+		markup += '<tr><th>Vaisseau</th><th>Amiral</th><th>Classe</th><th>Taille</th><th>Faction</th><th colspan="2">Statut</th></tr>';
+		for ( var i = 0; i < data.length; i++ ) {
+			markup += $( '<div/>' ).append( data[i] ).html();
+		}
+		markup += '</table>';
+		return markup;
+	},
+
 	improveTooltips: function( starfield ) {
+		var self = this;
+
 		$( 'a', starfield ).each(function() {
 			// when the tooltip gets too big...
 			var data = $( this ).attr( 'onmouseover' ).toString();
@@ -40,40 +77,35 @@ GEOCRON.modules.push({
 			data = $( data ).filter( 'table:last' );
 
 			// filter ships based on alliance
-			var ally = [], others = [];
-			$( 'tr', data ).each(function() {
-				var name = $( this ).find( 'td:nth(4)' );
-				if ( name.length == 1 ) {
-					$( this ).addClass( name.text().replace( '.', '', 'g' ) );
-					if ( GEOCRON.isAlly(name.text()) ) {
-						ally.push( this );
-					} else {
-						others.push( this );
-					}
-				}
+			var split = self.splitShips( $( 'tr', data ), function( name ) {
+				return GEOCRON.isAlly( name );
 			});
+			if ( split.left.length == 0 || split.right.length == 0 ) {
+				// re-split by alliance
+				var ally = GEOCRON.getAlliance( self.getFaction( split[ split.left.length == 0 ? 'right' : 'left' ][0] ) );
+				split = self.splitShips( split[ split.left.length == 0 ? 'right' : 'left' ], function( name ) {
+					return GEOCRON.getAlliance( name ) == ally;
+				});
+			}
 
 			// reorganise data: two tables side by side
 			data = '<table class="planet">' + data.end().filter( 'table:first' ).html() + '</table>';
-			data += '<div class="ally"><table>';
-			data += '<tr><th>Vaisseau</th><th>Amiral</th><th>Classe</th><th>Taille</th><th>Faction</th><th colspan="2">Statut</th></tr>';
-			for ( var i = 0; i < ally.length; i++ ) {
-				data += $( '<div/>' ).append( ally[i] ).html();
-			}
-			data += '</table></div><div class="others"><table>';
-			data += '<tr><th>Vaisseau</th><th>Amiral</th><th>Classe</th><th>Taille</th><th>Faction</th><th colspan="2">Statut</th></tr>';
-			for ( var i = 0; i < others.length; i++ ) {
-				data += $( '<div/>' ).append( others[i] ).html();
-			}
-			data += '</table></div><div class="clear"></div>';
+			data += '<div class="left">';
+			data += self.getTableMarkup( split.left );
+			data += '</div><div class="right">';
+			data += self.getTableMarkup( split.right );
+			data += '</div><div class="clear"></div>';
 
 			$( this )
 			.removeAttr( 'onmouseover' ).removeAttr( 'onmouseout' )
-			.attr( 'title', '|' + data )
+			.attr( 'title', '†' + data )
 			.cluetip({
 				cluetipClass: 'system',
-				splitTitle: '|',
 				showTitle: false,
+				splitTitle: '†', // can't use the usual char here: ship names may contain it
+				sticky: true,
+				closeText: 'X',
+				mouseOutClose: true,
 				width: 980
 			});
 		});
