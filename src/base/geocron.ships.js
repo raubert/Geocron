@@ -8,10 +8,19 @@ GEOCRON.ships = {
 	'Achila': {
 		size: 10
 	},
+	'Archer': {
+		size: 10
+	},
 	'Doomlight': {
 		size: 10
 	},
+	'Flarekin': {
+		size: 10
+	},
 	'Skyfire': {
+		size: 10
+	},
+	'Voïd-Shark': {
 		size: 10
 	},
 	'Vulture': {
@@ -39,6 +48,9 @@ GEOCRON.ships = {
 	},
 
 	'Anubis': {
+		size: 60
+	},
+	'Minotaure': {
 		size: 60
 	}
 
