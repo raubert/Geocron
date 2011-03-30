@@ -1,4 +1,4 @@
-(function( $, GEOCRON, undefined ) {
+(function( $, GEOCRON ) {
 
 // let's register this module
 GEOCRON.modules.push({
@@ -36,10 +36,10 @@ GEOCRON.modules.push({
 	},
 
 	addBonus: function( stats, ally, skill, bonus ) {
-		if ( stats[ ally ] === undefined ) {
+		if ( typeof stats[ ally ] === 'undefined' ) {
 			stats[ ally ] = {};
 		}
-		if ( stats[ ally ][ skill ] === undefined ) {
+		if ( typeof stats[ ally ][ skill ] === 'undefined' ) {
 			stats[ ally ][ skill ] = 0;
 		}
 		stats[ ally ][ skill ] += bonus;
@@ -55,7 +55,7 @@ GEOCRON.modules.push({
 			splitTitle: '|',
 			positionBy: 'mouse',
 			tracking: true,
-			width: 240
+			width: 260
 		});
 	},
 
@@ -69,7 +69,7 @@ GEOCRON.modules.push({
 			var faction = factions[i], first = true;
 			for ( var j = 0; j < GEOCRON.units.SKILLS.length; j++ ) {
 				var skill = GEOCRON.units.SKILLS[ j ], value = stats[ faction ] && stats[ faction ][ skill.name ];
-				if ( value !== undefined ) {
+				if ( typeof value !== 'undefined' ) {
 					if ( first ) {
 						infos += '<hr/>';
 						first = false;
@@ -93,7 +93,7 @@ GEOCRON.modules.push({
 			splitTitle: '|',
 			positionBy: 'mouse',
 			tracking: true,
-			width: 240
+			width: 260
 		});
 	},
 
@@ -109,14 +109,14 @@ GEOCRON.modules.push({
 
 			// standard lines will fill the stats
 			$( 'tr', this ).each(function() {
-				var ally = $( this ).find( 'td:nth(2) font' ).text() || 'F.G.V',
+				var ally = $( this ).find( 'td:nth(2) font' ).text() || GEOCRON.getFaction(),
 					units = GEOCRON.units[ ally ];
-				if ( units !== undefined ) {
+				if ( typeof units !== 'undefined' ) {
 					var data = $( this ).find( 'td:first' ).text(),
 						count = parseInt( data ),
 						name = data.replace( /\d*/, '' ).trim(),
 						unit = units[ name ];
-					if ( unit !== undefined ) {
+					if ( typeof unit !== 'undefined' ) {
 						// add info per troop
 						var bonus = unit.skill.mod * count / unit.div;
 						bonus = bonus > 0 ? Math.ceil( bonus ) : Math.floor( bonus );
