@@ -1,6 +1,6 @@
 <project name="Geocron" default="all" basedir=".">
 
-	<property name="version" value="0.9" />
+	<property name="version" value="1.0" />
 	<property name="host" value="localhost" />
 
 	<property environment="env" />
